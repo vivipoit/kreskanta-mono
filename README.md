@@ -1,24 +1,17 @@
-# README
+# kreskanta-mono
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Docker
+https://www.docker.com/
 
-Things you may want to cover:
+### Verificar instalação
+Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `Docker version 20.10.11, build dea9396`.
 
-* Ruby version
+### Subir container
+`docker-compose run --rm --service-ports web bash`
 
-* System dependencies
+### Rodar aplicação
+`bin/setup`
+`bundle exec rails server -b 0.0.0.0 -p 3000`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Abrir no navegador
+`localhost:3000`
