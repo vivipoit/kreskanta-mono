@@ -7,7 +7,7 @@ describe BinanceClient do
     subject { described_class.new.request_time }
 
     it 'should return server time' do
-      expect(subject).to include('serverTime')
+      expect(subject).to eq({ 'serverTime' => 1499827319559 })
     end
   end
 end
