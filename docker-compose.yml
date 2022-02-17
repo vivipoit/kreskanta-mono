@@ -10,6 +10,8 @@ services:
   web:
     build: .
     environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: password
     volumes:
