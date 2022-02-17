@@ -23,6 +23,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 5'
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'webmock'
 end

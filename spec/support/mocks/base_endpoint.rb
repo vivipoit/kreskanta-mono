@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before do
     stub_request(:any, 'https://api.binance.com')
       .to_return(
         status: 200,
