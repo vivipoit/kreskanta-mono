@@ -1,0 +1,21 @@
+name: RuboCop
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - name: Install Bundler
+        run: gem install bundler
+      - name: Run bundle install
+        run: bundle install
+      - name: Run RuboCop
+        run: bundle exec rubocop --parallel
