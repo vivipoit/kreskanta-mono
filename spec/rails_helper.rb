@@ -29,3 +29,7 @@ RSpec.configure do |config|
     metadata[:type] = :lib
   end
 end
+
+Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
+Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+Capybara.server_port = 3000

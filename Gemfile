@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rubocop-rspec', require: false
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'capybara'
 end
 
 group :development do
