@@ -20,3 +20,6 @@ Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `D
 
 ### Rodar testes
 `rspec`
+
+## Bootstrap
+https://getbootstrap.com/docs/5.1/getting-started/introduction/
