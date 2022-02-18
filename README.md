@@ -9,9 +9,14 @@ Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `D
 ### Subir container
 `docker-compose run --rm --service-ports web bash`
 
-### Rodar aplicação
+### Rodar setup
 `bin/setup`
+
+### Rodar aplicação
 `bundle exec rails server -b 0.0.0.0 -p 3000`
 
 ### Abrir no navegador
 `localhost:3000`
+
+### Rodar testes
+`rspec`
