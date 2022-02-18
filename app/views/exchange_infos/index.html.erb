@@ -1,49 +1,60 @@
-<dl>
-  <dt>timezone</dt>
-  <dd><%= @exchange_infos[:timezone] %></dd>
-  <dt>serverTime</dt>
-  <dd><%= @exchange_infos[:serverTime] %></dd>
-  <dt>rateLimits</dt>
-  <dd>
-    <table>
-      <tr>
-        <th>rateLimitType</th>
-        <th>interval</th>
-        <th>intervalNum</th>
-        <th>limit</th>
-      </tr>
-      <% @exchange_infos[:rateLimits].each do |rate_limit| %>
+<div class="container-fluid mt-3">
+  <h2>Exchange Information</h2>
+  <p class="m-0 p-0">Current exchange trading rules and symbol information</p>
+  <p class="m-0 p-0 text-muted">https://binance-docs.github.io/apidocs/spot/en/#exchange-information</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <dl class="row">
+    <dt class="col-2 text-center">timezone</dt>
+    <dd class="col-10"><%= @exchange_infos[:timezone] %></dd>
+    <dt class="col-2 text-center">serverTime</dt>
+    <dd class="col-10"><%= @exchange_infos[:serverTime] %></dd>
+    <dt class="col-2 text-center">rateLimits</dt>
+    <dd class="col-10">
+      <table class="table table-sm table-striped">
         <tr>
-          <td><%= rate_limit[:rateLimitType] %></td>
-          <td><%= rate_limit[:interval] %></td>
-          <td><%= rate_limit[:intervalNum] %></td>
-          <td><%= rate_limit[:limit] %></td>
+          <th class="text-center">rateLimitType</th>
+          <th class="text-center">interval</th>
+          <th class="text-center">intervalNum</th>
+          <th class="text-center">limit</th>
         </tr>
-      <% end %>
-    </table>
-  </dd>
-  <dt>exchangeFilters</dt>
-  <dd><%= @exchange_infos[:exchangeFilters] %></dd>
-  <dt>symbols (first)</dt>
-  <dd>
-    <table>
+        <% @exchange_infos[:rateLimits].each do |rate_limit| %>
+          <tr>
+            <td class="text-center"><%= rate_limit[:rateLimitType] %></td>
+            <td class="text-center"><%= rate_limit[:interval] %></td>
+            <td class="text-end"><%= rate_limit[:intervalNum] %></td>
+            <td class="text-end"><%= rate_limit[:limit] %></td>
+          </tr>
+        <% end %>
+      </table>
+    </dd>
+    <dt class="col-2 text-center">exchangeFilters</dt>
+    <dd class="col-10"><%= @exchange_infos[:exchangeFilters] %></dd>
+  </dl>
+</div>
+
+<div class="container-fluid mt-3">
+  <h3>symbols</h3>
+  <div class="table-responsive">
+    <table class="table table-sm table-info table-striped table-hover">
       <tr>
-        <th>symbol</th>
-        <th>status</th>
-        <th>baseAsset</th>
-        <th>quoteAsset</th>
-        <th>orderTypes</th>
-        <th>filters</th>
-        <th>permissions</th>
-        <th>hash keys</th>
+        <th class="text-center">symbol</th>
+        <th class="text-center">status</th>
+        <th class="text-center">baseAsset</th>
+        <th class="text-center">quoteAsset</th>
+        <th class="text-center">orderTypes</th>
+        <th class="text-center">filters</th>
+        <th class="text-center">permissions</th>
+        <th class="text-center">hash keys</th>
       </tr>
-      <% @exchange_infos[:symbols].each do |symbol| %>
+      <% @exchange_infos[:symbols].first(25).each do |symbol| %>
         <tr id="<%= symbol[:symbol] %>">
-          <td><%= symbol[:symbol] %></td>
-          <td><%= symbol[:status] %></td>
-          <td><%= symbol[:baseAsset] %></td>
-          <td><%= symbol[:quoteAsset] %></td>
-          <td>
+          <td class="text-center"><%= symbol[:symbol] %></td>
+          <td class="text-center"><%= symbol[:status] %></td>
+          <td class="text-center"><%= symbol[:baseAsset] %></td>
+          <td class="text-center"><%= symbol[:quoteAsset] %></td>
+          <td class="text-center">
             <% symbol[:orderTypes].each do |order_type| %>
               <%= order_type %><br/>
             <% end %>
@@ -53,7 +64,7 @@
               <%= filter %><br/>
             <% end %>
           </td>
-          <td>
+          <td class="text-center">
             <% symbol[:permissions].each do |permission| %>
               <%= permission %><br/>
             <% end %>
@@ -66,5 +77,5 @@
         </tr>
       <% end %>
     </table>
-  </dd>
-</dl>
+  </div>
+</div>

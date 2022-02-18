@@ -7,10 +7,6 @@ describe 'user sees exchange info' do
     visit root_path
   end
 
-  it 'includes app title' do
-    expect(page).to have_css('h1', text: 'Kreskanta Mono')
-  end
-
   it 'includes symbol information' do
     within '#BNBBTC' do
       expect(page).to have_content('BNBBTC')
