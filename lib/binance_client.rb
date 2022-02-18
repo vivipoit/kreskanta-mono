@@ -7,8 +7,16 @@
 require 'rest-client'
 
 class BinanceClient
-  def request_time
+  def server_time
     make_request(:get, '/api/v3/time')
+  end
+
+  def exchange_info(*symbols)
+    path = '/api/v3/exchangeInfo'
+    path += "?symbols=#{symbols.to_json}" if symbols.any?
+
+
+    make_request(:get, path)
   end
 
   private
@@ -21,7 +29,7 @@ class BinanceClient
       headers:
     )
 
-    JSON.parse(response.body)
+    JSON.parse(response.body).deep_symbolize_keys
   rescue RestClient::ExceptionWithResponse => e
     Rails.logger.debug e.inspect
   end
