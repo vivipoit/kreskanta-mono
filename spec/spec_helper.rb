@@ -19,9 +19,7 @@ RSpec.configure do |config|
     WebMock.enable!
   end
 
-  config.around(:each) do |example|
-    Dir[Rails.root.join("spec/support/mocks/#{example.metadata[:type]}/**/*.rb")].each { |f| require f }
-    example.run
-    WebMock.reset!
+  config.before do |example|
+    load_mocks(example.metadata[:type])
   end
 end

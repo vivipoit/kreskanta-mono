@@ -15,7 +15,6 @@ class BinanceClient
     path = '/api/v3/exchangeInfo'
     path += "?symbols=#{symbols.to_json}" if symbols.any?
 
-
     make_request(:get, path)
   end
 

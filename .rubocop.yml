@@ -22,3 +22,9 @@ Metrics/BlockLength:
     - describe
   Exclude:
     - 'spec/support/mocks/**/*'
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/MultipleExpectations:
+  Max: 5
