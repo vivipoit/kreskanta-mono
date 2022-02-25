@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo')
+WebMock.stub_request(:get, 'https://api.binance.us/api/v3/exchangeInfo')
   .to_return(
     status: 200,
     body: {

@@ -34,7 +34,7 @@ class BinanceClient
   end
 
   def base_endpoint
-    'https://api.binance.com'
+    'https://api.binance.us'
   end
 
   def headers

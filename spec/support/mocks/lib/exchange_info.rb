@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo')
+WebMock.stub_request(:get, 'https://api.binance.us/api/v3/exchangeInfo')
   .to_return(
     status: 200,
     body: {
@@ -13,7 +13,7 @@ WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo')
     headers: {}
   )
 
-WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BTCUSDT%22,%22VETBUSD%22%5D')
+WebMock.stub_request(:get, 'https://api.binance.us/api/v3/exchangeInfo?symbols=%5B%22BTCUSDT%22,%22VETBUSD%22%5D')
   .to_return(
     status: 200,
     body: {
