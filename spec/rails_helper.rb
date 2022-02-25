@@ -30,6 +30,8 @@ RSpec.configure do |config|
   config.define_derived_metadata(file_path: Regexp.new('/spec/lib/')) do |metadata|
     metadata[:type] = :lib
   end
+
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
 
 Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"

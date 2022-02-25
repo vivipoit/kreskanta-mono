@@ -1,3 +1,10 @@
 <header class="p-2 sticky-top flex-md-nowrap navbar navbar-dark bg-primary bg-gradient shadow">
   <%= link_to 'Kreskanta Mono', root_path, class: 'navbar-brand' %>
+
+  <% if user_signed_in? %>
+    <div class="d-flex">
+      <span class="navbar-text mx-3"><%= current_user.email %></span>
+      <%= button_to 'Sair', destroy_user_session_path, method: :delete, data: { turbo: 'false' }, class: 'btn btn-outline-light' %>
+    </div>
+  <% end %>
 </header>
