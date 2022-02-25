@@ -21,5 +21,11 @@ Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `D
 ### Rodar testes
 `rspec`
 
+### Acessar o terminal do container enquanto a aplicação está rodando
+1. Abrir outra aba ou janela do terminal
+2. Rodar `docker ps`
+3. Pegar o nome do container em questão, algo como `kreskanta-mono_web_run_5797fbf9754c`
+4. Rodar `docker exec -it NOME_DO_CONTAINER bash`
+
 ## Bootstrap
 https://getbootstrap.com/docs/5.1/getting-started/introduction/
