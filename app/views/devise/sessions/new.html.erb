@@ -1,0 +1,30 @@
+<div class="bg-light container-fluid p-5 text-center">
+  <%= image_tag 'man.jpeg', height: 250, class: 'my-3' %>
+  <h2>Who is you?</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <% if notice || alert %>
+      <p class="m-5 font-monospace text-danger"><%= notice %><%= alert %></p>
+    <% end %>
+    <div class="field my-3">
+      <%= f.label :email, 'E-mail' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'text-center' %>
+    </div>
+
+    <div class="field my-3">
+      <%= f.label :password, 'Senha' %><br />
+      <%= f.password_field :password, autocomplete: 'current-password', class: 'text-center' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field my-3">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions my-3">
+      <%= f.submit 'Entrar', class: 'btn btn-lg btn-info' %>
+    </div>
+  <% end %>
+</div>
