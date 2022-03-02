@@ -7,6 +7,7 @@ ruby '3.1.0'
 
 gem 'bootsnap', require: false
 gem 'bootstrap'
+gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'net-smtp', require: false
@@ -15,11 +16,11 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0'
 gem 'rest-client'
 gem 'sassc-rails'
+gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'devise'
 
 group :development, :test do
   gem 'capybara'
