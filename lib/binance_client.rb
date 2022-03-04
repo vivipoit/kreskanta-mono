@@ -12,5 +12,11 @@ module BinanceClient
 
       Request.execute(:get, path)
     end
+
+    def account_snapshot(user)
+      params = { type: 'SPOT' }
+
+      SignedRequest.execute(:get, '/sapi/v1/accountSnapshot', params, user)
+    end
   end
 end

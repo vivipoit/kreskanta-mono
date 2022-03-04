@@ -38,4 +38,21 @@ describe BinanceClient do
       expect(rules_and_symbols).to eq(expected_rules_and_symbols)
     end
   end
+
+  describe '.account_snapshot' do
+    subject(:account_snapshot) { described_class.account_snapshot(user) }
+
+    let(:user) do
+      User.create(
+        email: 'this@email.com',
+        password: 'difficult-to-guess',
+        api_key: 'skeleton-key',
+        api_secret_key: 'hidden-key'
+      )
+    end
+
+    it 'returns snapshop of account snapshop' do
+      expect(account_snapshot).to eq({ account: 'What a great snapshop!' })
+    end
+  end
 end
