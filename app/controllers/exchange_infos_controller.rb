@@ -2,6 +2,6 @@
 
 class ExchangeInfosController < ApplicationController
   def index
-    @exchange_infos = BinanceClient.new.exchange_info
+    @exchange_infos = BinanceClient.exchange_info
   end
 end

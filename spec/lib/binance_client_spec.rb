@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe BinanceClient do
   describe '.server_time' do
-    subject(:server_time) { described_class.new.server_time }
+    subject(:server_time) { described_class.server_time }
 
     it 'returns server time' do
       expect(server_time).to eq({ serverTime: 1_499_827_319_559 })
@@ -25,7 +25,7 @@ describe BinanceClient do
     it 'returns all rules and symbols' do
       expected_rules_and_symbols[:symbols] = ['ALL THE SYMBOLS']
 
-      rules_and_symbols = described_class.new.exchange_info
+      rules_and_symbols = described_class.exchange_info
 
       expect(rules_and_symbols).to eq(expected_rules_and_symbols)
     end
@@ -33,7 +33,7 @@ describe BinanceClient do
     it 'returns specified symbol only' do
       expected_rules_and_symbols[:symbols] = ['SPECIFIED SYMBOLS']
 
-      rules_and_symbols = described_class.new.exchange_info('BTCUSDT', 'VETBUSD')
+      rules_and_symbols = described_class.exchange_info('BTCUSDT', 'VETBUSD')
 
       expect(rules_and_symbols).to eq(expected_rules_and_symbols)
     end
