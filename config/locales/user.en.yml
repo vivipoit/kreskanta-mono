@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+    attributes:
+      user:
+        email: E-email
+        password: Password
+        api_key: API Key
+        api_secret_key: Secret Key
