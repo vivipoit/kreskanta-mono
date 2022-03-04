@@ -6,7 +6,7 @@ en:
         other: Users
     attributes:
       user:
-        email: E-email
+        email: E-mail
         password: Password
         api_key: API Key
         api_secret_key: Secret Key

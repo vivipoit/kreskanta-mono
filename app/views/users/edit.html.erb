@@ -1,0 +1,23 @@
+<div class="container-fluid mt-3">
+  <h2>Chaves</h2>
+  <p class="m-0 p-0">Use o formulário abaixo para configurar as chaves necessárias para autenticação com a API.</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <%= simple_form_for @user, defaults: { input_html: { class: 'form-control' } } do |f| %>
+    <div class="row my-5">
+      <div class="col-md-6">
+        <%= f.input :api_key, as: :string %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :api_secret_key, as: :string %>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-md-6">
+        <%= f.button :submit, class: 'btn-primary' %>
+        <%= link_to 'Cancelar', :back, :class => 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

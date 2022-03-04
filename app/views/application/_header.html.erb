@@ -3,8 +3,16 @@
 
   <% if user_signed_in? %>
     <div class="d-flex">
-      <span class="navbar-text mx-3"><%= current_user.email %></span>
-      <%= button_to 'Sair', destroy_user_session_path, method: :delete, data: { turbo: 'false' }, class: 'btn btn-outline-light' %>
+      <div class="dropdown">
+        <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= current_user.email %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="userDropdownMenuButton">
+          <li><%= link_to 'Chaves', edit_user_path(current_user), class: 'dropdown-item' %></li>
+          <li><%= button_to 'Sair', destroy_user_session_path, method: :delete, data: { turbo: 'false' }, class: 'dropdown-item' %></li>
+        </ul>
+      </div>
+
     </div>
   <% end %>
 </header>

@@ -23,7 +23,7 @@ describe 'user signs in' do
     fill_in 'Senha', with: 'incorrect'
     click_on 'Entrar'
 
-    expect(page).to have_css('p.text-danger', text: 'Invalid Email or password.')
+    expect(page).to have_css('p.text-danger', text: 'Invalid E-mail or password.')
 
     expect(page).not_to have_css('header.navbar')
   end
