@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_parameters)
-      redirect_to root_path, notice: 'Atualização realizada com sucesso!'
+      redirect_to user_root_path, notice: 'Atualização realizada com sucesso!'
     else
       redirect_to edit_user_path(@user), alert: 'Problemas ao atualizar.'
     end

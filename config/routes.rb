@@ -3,9 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users, only: :sessions, controllers: { sessions: 'user/sessions' }
 
-  root 'exchange_infos#index'
+  authenticate :user do
+    get 'exchange_infos', to: 'exchange_infos#index', as: :user_root
+    resources :users, only: %i[edit update]
+  end
 
-  get 'home', to: 'home#index'
-
-  resources :users, only: %i[edit update]
+  root 'home#index'
 end

@@ -7,7 +7,7 @@ describe 'user updates API keys' do
     user = User.create(email: 'this@email.com', password: 'difficult-to-guess')
 
     sign_in user
-    visit root_path
+    visit user_root_path
     click_on 'this@email.com'
     click_on 'Chaves'
     fill_in 'API Key', with: 'abc123'

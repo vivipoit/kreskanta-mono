@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'person sees home' do
   before do
-    visit home_path
+    visit root_path
   end
 
   it 'includes title' do

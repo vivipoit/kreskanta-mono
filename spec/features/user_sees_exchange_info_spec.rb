@@ -4,7 +4,10 @@ require 'rails_helper'
 
 describe 'user sees exchange info' do
   before do
-    visit root_path
+    user = User.create(email: 'this@email.com', password: 'difficult-to-guess')
+
+    sign_in user
+    visit user_root_path
   end
 
   it 'includes symbol information' do
