@@ -10,7 +10,7 @@ describe 'user signs out' do
     visit root_path
     click_on 'Sair'
 
-    expect(current_path).to eq(home_path)
+    expect(page).to have_current_path(home_path, ignore_query: true)
     expect(page).not_to have_css('header.navbar')
   end
 end

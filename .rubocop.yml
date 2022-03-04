@@ -17,6 +17,10 @@ Style/HashSyntax:
 Style/Documentation:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/user/**/*'
+
 Metrics/BlockLength:
   IgnoredMethods:
     - describe
