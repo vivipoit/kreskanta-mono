@@ -1,0 +1,14 @@
+<div class="container-fluid mt-3">
+  <h2>Daily Account Snapshot</h2>
+  <p class="m-0 p-0">described this stuff here</p>
+  <p class="m-0 p-0 text-muted">https://binance-docs.github.io/apidocs/spot/en/#daily-account-snapshot-user_data</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <% @account_snapshot.each do |key, value| %>
+    <dl class="row">
+      <dt class="col-2 text-center"><%= key %></dt>
+      <dd class="col-10"><%= value.inspect %></dd>
+    </dl>
+  <% end %>
+</div>
