@@ -1,0 +1,14 @@
+<div class="container-fluid mt-3">
+  <h2>Account Information</h2>
+  <p class="m-0 p-0">Binance::Api::Account.info! => Get current account information.</p>
+  <p class="m-0 p-0 text-muted">https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <% @info.each do |key, value| %>
+    <dl class="row">
+      <dt class="col-2 text-center"><%= key %></dt>
+      <dd class="col-10"><%= value.inspect %></dd>
+    </dl>
+  <% end %>
+</div>
