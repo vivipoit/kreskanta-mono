@@ -15,6 +15,7 @@ services:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: password
       RAILS_MASTER_KEY: 2df7c389ef1d34a0703bea91c8096d55
+      BINANCE_TLD: US
     volumes:
       - .:/app
     ports:
