@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :initial_setup do
   task create_first_coins: :environment do
     Rails.logger.info '### initial_setup:create_first_coins started ###'
