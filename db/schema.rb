@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_11_132046) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_11_143250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_132046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["own_symbol"], name: "index_coins_on_own_symbol", unique: true
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.bigint "coin_id", null: false
+    t.string "currency", default: "USD"
+    t.decimal "price", precision: 15, scale: 5, default: "0.0"
+    t.decimal "price_change", default: "0.0"
+    t.decimal "change_percentage", precision: 5, scale: 2, default: "0.0"
+    t.integer "change_direction", limit: 2, default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_prices_on_coin_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_132046) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "prices", "coins"
 end
