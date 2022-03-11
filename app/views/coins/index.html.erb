@@ -1,0 +1,24 @@
+<div class="container-fluid mt-3">
+  <h2>Coins</h2>
+  <p class="m-0 p-0">Coins that have been created in this app's database.</p>
+  <p class="m-0 p-0 text-muted">We can put more information here.</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <table class="table table-sm table-striped table-hover">
+    <tr>
+      <th class="text-center">#</th>
+      <th class="text-center">Own Symbol</th>
+      <th class="text-center">USD Symbol</th>
+      <th class="text-center">Name</th>
+    </tr>
+    <% @coins.each do |coin| %>
+      <tr>
+        <td class="text-center"><%= coin.id %></td>
+        <td class="text-center"><%= coin.own_symbol %></td>
+        <td class="text-center"><%= coin.usd_symbol %></td>
+        <td class="text-center"><%= coin.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
