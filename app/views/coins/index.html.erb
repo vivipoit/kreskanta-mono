@@ -15,7 +15,7 @@
     <% @coins.each do |coin| %>
       <tr>
         <td class="text-center"><%= coin.id %></td>
-        <td class="text-center"><%= coin.own_symbol %></td>
+        <td class="text-center"><%= link_to coin.own_symbol, coin_path(coin) %></td>
         <td class="text-center"><%= coin.usd_symbol %></td>
         <td class="text-center"><%= coin.name %></td>
       </tr>

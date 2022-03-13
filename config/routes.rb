@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'exchange_infos', to: 'exchange_infos#index', as: :user_root
     get 'account_snapshots', to: 'account_snapshots#index'
     resources :users, only: %i[edit update]
-    resources :coins, only: %i[index]
+    resources :coins, only: %i[index show]
 
     get 'account_info', to: 'accounts#index'
   end

@@ -1,0 +1,28 @@
+<div class="container-fluid mt-3">
+  <h2>Prices</h2>
+  <p class="m-0 p-0">Prices collected for <%= @coin.name %> (<%= @coin.own_symbol %>).</p>
+  <p class="m-0 p-0 text-muted">We can put more information here.</p>
+</div>
+
+<div class="container-fluid mt-3">
+  <table class="table table-sm table-striped table-hover">
+    <tr>
+      <th class="text-center">#</th>
+      <th class="text-center">Price (USD)</th>
+      <th class="text-center">Change</th>
+      <th class="text-center">Percentage</th>
+      <th class="text-center">Direction</th>
+      <th class="text-center">Created At</th>
+    </tr>
+    <% @coin.prices.each do |price| %>
+      <tr>
+        <td class="text-center"><%= price.id %></td>
+        <td class="text-end"><%= price.price %></td>
+        <td class="text-end"><%= price.price_change %></td>
+        <td class="text-end"><%= price.change_percentage %>%</td>
+        <td class="text-end"><%= price.change_direction %></td>
+        <td class="text-center"><%= price.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
