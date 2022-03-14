@@ -38,3 +38,10 @@ Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `D
 - [Atom](https://atom.io/) - A decent text editor for writting code. Other possibilities could be Sublime, Vim, etc.
 - [Sourcetree](https://www.sourcetreeapp.com/) - Sometimes it's useful to have a visual of the git repository.
 - [iTerm](https://iterm2.com/) - Often preferred over Apple's native terminal.
+
+## Encryption
+- [multi environment credentials](https://blog.saeloun.com/2019/10/10/rails-6-adds-support-for-multi-environment-credentials.html)
+- Command Cheatsheet
+  - `bin/rails db:encryption:init`
+  - `EDITOR="atom --wait" rails credentials:edit`
+  - `EDITOR="atom --wait" rails credentials:edit --environment production`

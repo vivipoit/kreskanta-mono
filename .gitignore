@@ -29,3 +29,5 @@
 
 # Ignore test coverage files.
 coverage
+
+/config/credentials/production.key
