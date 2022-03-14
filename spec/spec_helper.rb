@@ -13,6 +13,10 @@ RSpec.configure do |config|
 
   config.order = :random
 
+  config.before(:suite) do
+    Rails.application.load_tasks
+  end
+
   config.around(:each, :webmock_free) do |example|
     WebMock.disable!
     example.run
