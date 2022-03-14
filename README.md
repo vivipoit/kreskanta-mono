@@ -21,6 +21,9 @@ Chamar `docker -v` num terminal qualquer e confirmar que aparece algo do tipo `D
 ### Rodar testes
 `rspec`
 
+### Criar primeiras moedas
+`rake initial_setup:create_first_coins`
+
 ### Acessar o terminal do container enquanto a aplicação está rodando
 1. Abrir outra aba ou janela do terminal
 2. Rodar `docker ps`
