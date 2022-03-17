@@ -35,7 +35,9 @@ describe 'user sees coins' do
   end
 
   it 'includes coin information' do
-    expect(page).to have_content('BTC BTCUSD Bitcoin')
-    expect(page).to have_content('ETH ETHUSD Ethereum')
+    expect(page).to have_content('BTC')
+    expect(page).to have_content('Bitcoin')
+    expect(page).to have_content('BTCUSD')
+    expect(page).to have_link('Prices', href: coin_path(Coin.first))
   end
 end

@@ -26,7 +26,9 @@ describe 'user sees coin prices' do
     sign_in user
     visit user_root_path
     click_on 'Coins'
-    click_on coin.own_symbol
+    within "#col-#{coin.own_symbol}" do
+      click_on 'Prices'
+    end
   end
 
   it 'includes title' do

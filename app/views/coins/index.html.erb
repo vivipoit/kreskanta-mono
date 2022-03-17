@@ -1,24 +1,30 @@
 <div class="container-fluid mt-3">
-  <h2>Coins</h2>
+  <h2><%= icon('fas', 'coins', 'Coins', class: 'm-1') %></h2>
   <p class="m-0 p-0">Coins that have been created in this app's database.</p>
   <p class="m-0 p-0 text-muted">We can put more information here.</p>
 </div>
 
 <div class="container-fluid mt-3">
-  <table class="table table-sm table-striped table-hover">
-    <tr>
-      <th class="text-center">#</th>
-      <th class="text-center">Own Symbol</th>
-      <th class="text-center">USD Symbol</th>
-      <th class="text-center">Name</th>
-    </tr>
+  <div class="row">
     <% @coins.each do |coin| %>
-      <tr>
-        <td class="text-center"><%= coin.id %></td>
-        <td class="text-center"><%= link_to coin.own_symbol, coin_path(coin) %></td>
-        <td class="text-center"><%= coin.usd_symbol %></td>
-        <td class="text-center"><%= coin.name %></td>
-      </tr>
+      <div id="col-<%= coin.own_symbol %>" class="col-md-3">
+        <div class="card m-1">
+          <div class="card-header text-center">
+            <h5 class="card-title"><%= coin.own_symbol %></h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6 text-center">
+                <p class="m-0"><%= coin.name %></p>
+                <p class="m-0 text-muted"><%= coin.usd_symbol %></p>
+              </div>
+              <div class="col-6 d-flex justify-content-end align-items-end">
+                <%= link_to icon('fas', 'tag', 'Prices', class: 'm-1'), coin_path(coin), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </table>
+  </div>
 </div>
