@@ -1,0 +1,28 @@
+<div class="row">
+  <div id="col-<%= price.id %>" class="col-md-3">
+    <div class="card m-1">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4 d-flex align-items-end <%= price_change_text_class(price.change_direction) %>">
+            <%= icon('fas', 'chart-line', class: 'm-1') %>
+            <%= price.change_percentage  %>%
+            <%= icon('fas', "arrow-#{price.change_direction}", class: 'm-1') %>
+          </div>
+          <div class="col-8 text-end text-nowrap">
+            <h3 class="m-0"><%= number_to_currency price.price %></h3>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer py-0 text-muted">
+        <div class="row">
+          <div class="col-4">
+            <%= price.coin.own_symbol %>
+          </div>
+          <div class="col-8 text-end">
+            <%= price.created_at.to_fs(:long) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,6 +43,6 @@ describe 'user sees coin prices' do
     expect(page).to have_content('15.0')
     expect(page).to have_content('5.0')
     expect(page).to have_content('50.0%')
-    expect(page).to have_content('up')
+    expect(page).to have_css('.fa-arrow-up')
   end
 end
