@@ -121,6 +121,8 @@ GEM
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
     ffi (1.15.5)
+    font-awesome-sass (6.1.0)
+      sassc (>= 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
@@ -334,6 +336,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  font-awesome-sass
   importmap-rails
   jbuilder
   net-smtp

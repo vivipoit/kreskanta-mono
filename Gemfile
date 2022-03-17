@@ -9,6 +9,7 @@ gem 'binance-ruby'
 gem 'bootsnap', require: false
 gem 'bootstrap'
 gem 'devise'
+gem 'font-awesome-sass'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'net-smtp', require: false
