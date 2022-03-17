@@ -16,7 +16,7 @@ describe 'user sees account info' do
   end
 
   it 'includes title' do
-    expect(page).to have_css('h2', text: 'Account Information')
+    expect(page).to have_css('h2', text: 'Account Info')
   end
 
   it 'includes description' do

@@ -1,14 +1,47 @@
 <div class="container-fluid mt-3">
-  <h2>Account Information</h2>
+  <h2><%= icon('fas', 'wallet', 'Account Info', class: 'm-1') %></h2>
   <p class="m-0 p-0">Binance::Api::Account.info! => Get current account information.</p>
   <p class="m-0 p-0 text-muted">https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data</p>
 </div>
 
 <div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h4>Balances</h4>
+    </div>
+  </div>
+  <div class="row">
+    <% @info[:balances].each do |balance| %>
+      <div class="col-md-3">
+        <div class="card m-1">
+          <div class="card-header text-center">
+            <h5 class="card-title"><%= balance[:asset] %></h5>
+          </div>
+          <div class="card-body text-end">
+            <p class="card-text text-success">
+              <%= icon('fas', 'lock-open', class: 'm-1 float-start') %>
+              <%= balance[:free] %>
+            </p>
+            <p class="card-text text-danger">
+              <%= icon('fas', 'lock', class: 'm-1 float-start') %>
+              <%= balance[:locked] %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid mt-3">
   <% @info.each do |key, value| %>
-    <dl class="row">
-      <dt class="col-2 text-center"><%= key %></dt>
-      <dd class="col-10"><%= value.inspect %></dd>
-    </dl>
+    <div class="card my-1">
+      <div class="card-header">
+        <h5 class="card-title"><%= key %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= value.inspect %></p>
+      </div>
+    </div>
   <% end %>
 </div>
