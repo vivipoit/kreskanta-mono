@@ -45,7 +45,7 @@ describe BinanceClient do
     context 'when user is Binance US' do
       let(:user) do
         User.create(
-          email: 'this@email.com',
+          email: "#{SecureRandom.alphanumeric(4)}@email.com",
           password: 'difficult-to-guess',
           api_key: 'skeleton-key-us',
           api_secret_key: 'hidden-key-us',
@@ -61,7 +61,7 @@ describe BinanceClient do
     context 'when user is not Binance US' do
       let(:user) do
         User.create(
-          email: 'this@email.com',
+          email: "#{SecureRandom.alphanumeric(4)}@email.com",
           password: 'difficult-to-guess',
           api_key: 'skeleton-key',
           api_secret_key: 'hidden-key',

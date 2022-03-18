@@ -4,11 +4,11 @@ require 'rails_helper'
 
 describe 'user updates API keys' do
   it 'informs success' do
-    user = User.create(email: 'this@email.com', password: 'difficult-to-guess')
+    user = User.create(email: "#{SecureRandom.alphanumeric(4)}@email.com", password: 'difficult-to-guess')
 
     sign_in user
     visit user_root_path
-    click_on 'this@email.com'
+    click_on user.email
     click_on 'Chaves'
     fill_in 'API Key', with: 'abc123'
     fill_in 'Secret Key', with: 'XYZ9'

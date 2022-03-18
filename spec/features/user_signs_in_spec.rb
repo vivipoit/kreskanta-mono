@@ -4,13 +4,13 @@ require 'rails_helper'
 
 describe 'user signs in' do
   before do
-    User.create(email: 'this@email.com', password: 'difficult-to-guess')
+    user = User.create(email: "#{SecureRandom.alphanumeric(4)}@email.com", password: 'difficult-to-guess')
 
     visit new_user_session_path
+    fill_in 'E-mail', with: user.email
   end
 
   it 'informs success' do
-    fill_in 'E-mail', with: 'this@email.com'
     fill_in 'Senha', with: 'difficult-to-guess'
     click_on 'Entrar'
 
@@ -19,7 +19,6 @@ describe 'user signs in' do
   end
 
   it 'informs issues' do
-    fill_in 'E-mail', with: 'this@email.com'
     fill_in 'Senha', with: 'incorrect'
     click_on 'Entrar'
 

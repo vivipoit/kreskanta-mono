@@ -7,7 +7,7 @@ describe BinanceClient::SignedRequest do
     it 'makes signed request' do
       params = { key: 'value' }
       user = User.create(
-        email: 'this@email.com',
+        email: "#{SecureRandom.alphanumeric(4)}@email.com",
         password: 'difficult-to-guess',
         api_key: 'skeleton-key',
         api_secret_key: 'hidden-key'
