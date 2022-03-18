@@ -25,7 +25,11 @@ module PriceService
     end
 
     def fetch_previous_price
-      @previous_price = (coin.prices.any? ? coin.prices.last : Price.new).price
+      @previous_price = (coin.prices.any? ? most_recent_price : Price.new).price
+    end
+
+    def most_recent_price
+      coin.prices.order(created_at: :desc).first
     end
 
     def handle_price_change_fields
