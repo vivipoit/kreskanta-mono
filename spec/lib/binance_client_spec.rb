@@ -65,7 +65,7 @@ describe BinanceClient do
           password: 'difficult-to-guess',
           api_key: 'skeleton-key',
           api_secret_key: 'hidden-key',
-          account_base: 'not_us'
+          account_base: 'world'
         )
       end
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   encrypts :api_key, :api_secret_key
 
-  enum account_base: { not_us: 0, us: 1 }
+  enum account_base: { world: 0, us: 1 }
 
   def keys?
     api_key.present? && api_secret_key.present?
