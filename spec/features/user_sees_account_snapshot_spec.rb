@@ -8,7 +8,8 @@ describe 'user sees account snapshot' do
       email: 'this@email.com',
       password: 'difficult-to-guess',
       api_key: 'skeleton-key',
-      api_secret_key: 'hidden-key'
+      api_secret_key: 'hidden-key',
+      account_base: 'us'
     )
 
     sign_in user

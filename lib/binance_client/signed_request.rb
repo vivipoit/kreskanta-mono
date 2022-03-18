@@ -20,6 +20,8 @@ module BinanceClient
         JSON.parse(response.body).deep_symbolize_keys
       rescue RestClient::ExceptionWithResponse => e
         Rails.logger.debug e.inspect
+
+        {}
       end
 
       private
@@ -28,7 +30,7 @@ module BinanceClient
         query_strings = build_query_strings(params)
         signature = build_signature(user, query_strings)
 
-        "#{base_endpoint}#{path}?#{query_strings}&signature=#{signature}"
+        "#{base_endpoint(user)}#{path}?#{query_strings}&signature=#{signature}"
       end
 
       def build_query_strings(params)

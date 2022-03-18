@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable
 
   encrypts :api_key, :api_secret_key
+
+  enum account_base: { not_us: 0, us: 1 }
 end

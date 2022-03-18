@@ -20,12 +20,16 @@ module BinanceClient
         JSON.parse(response.body).deep_symbolize_keys
       rescue RestClient::ExceptionWithResponse => e
         Rails.logger.debug e.inspect
+
+        {}
       end
 
       private
 
-      def base_endpoint
-        'https://api.binance.us'
+      def base_endpoint(user = User.new)
+        tld = user.us? ? 'us' : 'com'
+
+        "https://api.binance.#{tld}"
       end
 
       def headers
