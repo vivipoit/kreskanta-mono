@@ -9,16 +9,16 @@ describe 'rake binance:create_prices' do
       usd_symbol: 'BTCUSD',
       name: 'Bitcoin'
     )
-    allow(Coin).to receive(:all).and_return([coin])
+    allow(Coin).to receive(:find_by).and_return(coin)
 
     ticker_response = { symbol: coin.own_symbol, price: '3.2' }
     allow(Binance::Api).to receive(:ticker!).and_return(ticker_response)
   end
 
-  it 'grabs all coins' do
+  it 'grabs bitcoin' do
     task.execute
 
-    expect(Coin).to have_received(:all)
+    expect(Coin).to have_received(:find_by).with(own_symbol: 'BTC')
   end
 
   it 'creates price records' do

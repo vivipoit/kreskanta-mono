@@ -4,9 +4,8 @@ namespace :binance do
   task create_prices: :environment do
     Rails.logger.info '### price fetch task started ###'
 
-    Coin.all.each do |coin|
-      PriceService::Create.new(coin).execute
-    end
+    coin = Coin.find_by(own_symbol: 'BTC')
+    PriceService::Create.new(coin).execute
 
     Rails.logger.info '### price fetch task completed ###'
   end
