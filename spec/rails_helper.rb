@@ -19,24 +19,20 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+Dir[Rails.root.join('spec/support/config/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/support/methods/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/support/modules/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.filter_rails_from_backtrace!
 
-  config.infer_spec_type_from_file_location!
-  config.define_derived_metadata(file_path: Regexp.new('/spec/lib/')) do |metadata|
-    metadata[:type] = :lib
-  end
-  config.define_derived_metadata(file_path: Regexp.new('/spec/lib/tasks/')) do |metadata|
-    metadata[:type] = :task
-  end
-
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include TaskFormat, type: :task
+
+  config.include FactoryBot::Syntax::Methods
 end
 
 Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
