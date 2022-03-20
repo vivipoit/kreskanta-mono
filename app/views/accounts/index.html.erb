@@ -7,11 +7,12 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12">
-      <h4>Balances</h4>
+      <h4>Bitcoin Balance</h4>
     </div>
   </div>
   <div class="row">
     <% @info[:balances].each do |balance| %>
+      <% next if balance[:asset] != 'BTC' %>
       <div class="col-md-3">
         <div class="card m-1">
           <div class="card-header text-center">
@@ -34,6 +35,7 @@
 </div>
 
 <div class="container-fluid mt-3">
+  <h4>All Info</h4>
   <% @info.each do |key, value| %>
     <div class="card my-1">
       <div class="card-header">
