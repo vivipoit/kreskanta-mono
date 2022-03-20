@@ -5,5 +5,9 @@
 </div>
 
 <div class="container-fluid mt-3">
+  <%= link_to icon('fas', 'download', 'CSV', class: 'm-1'), prices_path(format: :csv, coin_id: @coin), class: 'btn btn-primary' %>
+</div>
+
+<div class="container-fluid mt-3">
   <%= render @coin.prices %>
 </div>
