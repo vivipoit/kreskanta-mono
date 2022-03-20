@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <% @info[:balances].each do |balance| %>
-      <% next if balance[:asset] != 'BTC' %>
+      <% next if balance_zero?(balance) %>
       <div class="col-md-3">
         <div class="card m-1">
           <div class="card-header text-center">

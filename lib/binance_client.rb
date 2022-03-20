@@ -18,5 +18,9 @@ module BinanceClient
 
       SignedRequest.execute(:get, '/sapi/v1/accountSnapshot', params, user)
     end
+
+    def account_info(user)
+      SignedRequest.execute(:get, '/api/v3/account', {}, user)
+    end
   end
 end
