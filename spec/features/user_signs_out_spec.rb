@@ -4,9 +4,7 @@ require 'rails_helper'
 
 describe 'user signs out' do
   it 'goes to home' do
-    user = User.create(email: "#{SecureRandom.alphanumeric(4)}@email.com", password: 'difficult-to-guess')
-
-    sign_in user
+    sign_in create(:user)
     visit user_root_path
     click_on 'Sair'
 

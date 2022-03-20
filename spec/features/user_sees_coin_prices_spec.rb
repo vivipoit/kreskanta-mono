@@ -4,18 +4,9 @@ require 'rails_helper'
 
 describe 'user sees coin prices' do
   before do
-    user = User.create(
-      email: "#{SecureRandom.alphanumeric(4)}@email.com",
-      password: 'difficult-to-guess',
-      api_key: 'skeleton-key',
-      api_secret_key: 'hidden-key'
-    )
-    coin = Coin.create(
-      own_symbol: SecureRandom.alphanumeric(4),
-      usd_symbol: 'BTCUSD',
-      name: 'Bitcoin'
-    )
-    Price.create(
+    coin = create(:coin)
+    create(
+      :price,
       coin:,
       price: 15.0000,
       price_change: 5.0,
@@ -23,7 +14,7 @@ describe 'user sees coin prices' do
       change_direction: 'up'
     )
 
-    sign_in user
+    sign_in create(:user)
     visit user_root_path
     click_on 'Coins'
     within "#col-#{coin.own_symbol}" do

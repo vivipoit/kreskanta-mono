@@ -6,19 +6,11 @@ describe PriceService::Create do
   describe '.execute' do
     subject(:create_price) { described_class.new(coin).execute }
 
-    let(:coin) do
-      Coin.create(
-        own_symbol: SecureRandom.alphanumeric(4),
-        usd_symbol: 'ETHUSD',
-        name: 'Ethereum'
-      )
-    end
-    let(:ticker_response) do
-      { symbol: 'ETHUSD', price: '5.0000' }
-    end
+    let(:coin) { create(:coin, usd_symbol: 'ETHUSD') }
+    let(:response) { { symbol: 'ETHUSD', price: '5.0000' } }
 
     before do
-      allow(Binance::Api).to receive(:ticker!).and_return(ticker_response)
+      allow(Binance::Api).to receive(:ticker!).and_return(response)
     end
 
     context 'when Coin has no prices' do
@@ -45,7 +37,8 @@ describe PriceService::Create do
 
     context 'when Coin has previous price that is lower' do
       before do
-        Price.create(
+        create(
+          :price,
           coin:,
           price: 4.0000,
           price_change: 4.0,
@@ -70,7 +63,8 @@ describe PriceService::Create do
 
     context 'when Coin has previous price that is higher' do
       before do
-        Price.create(
+        create(
+          :price,
           coin:,
           price: 15.0000,
           price_change: 15.0,

@@ -2,7 +2,7 @@
 
 WebMock.stub_request(:get, /https:\/\/api\.binance\.us\/api\/v3\/account\?signature=([A-Za-z0-9]{50,75})&timestamp=([0-9]{10,15})/)
   .with(
-    headers: { 'X-Mbx-Apikey' => 'skeleton-key' }
+    headers: { 'X-Mbx-Apikey' => 'skeleton-key-us' }
   )
   .to_return(
     status: 200,

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'user signs in' do
   before do
-    user = User.create(email: "#{SecureRandom.alphanumeric(4)}@email.com", password: 'difficult-to-guess')
+    user = create(:user)
 
     visit new_user_session_path
     fill_in 'E-mail', with: user.email

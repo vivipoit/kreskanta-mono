@@ -6,12 +6,7 @@ describe BinanceClient::SignedRequest do
   describe '.execute' do
     it 'makes signed request' do
       params = { key: 'value' }
-      user = User.create(
-        email: "#{SecureRandom.alphanumeric(4)}@email.com",
-        password: 'difficult-to-guess',
-        api_key: 'skeleton-key',
-        api_secret_key: 'hidden-key'
-      )
+      user = create(:user)
 
       response = described_class.execute(:get, '/some/api/signed_path', params, user)
 

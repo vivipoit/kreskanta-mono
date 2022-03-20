@@ -4,14 +4,7 @@ require 'rails_helper'
 
 describe 'user sees header' do
   before do
-    user = User.create(
-      email: "#{SecureRandom.alphanumeric(4)}@email.com",
-      password: 'difficult-to-guess',
-      api_key: 'skeleton-key',
-      api_secret_key: 'hidden-key'
-    )
-
-    sign_in user
+    sign_in create(:user)
     visit user_root_path
   end
 

@@ -43,15 +43,7 @@ describe BinanceClient do
     subject(:account_snapshot) { described_class.account_snapshot(user) }
 
     context 'when user is Binance US' do
-      let(:user) do
-        User.create(
-          email: "#{SecureRandom.alphanumeric(4)}@email.com",
-          password: 'difficult-to-guess',
-          api_key: 'skeleton-key-us',
-          api_secret_key: 'hidden-key-us',
-          account_base: 'us'
-        )
-      end
+      let(:user) { create(:user, :us) }
 
       it 'returns snapshop of account' do
         expect(account_snapshot).to eq({ account: 'What a great US snapshop!' })
@@ -59,15 +51,7 @@ describe BinanceClient do
     end
 
     context 'when user is not Binance US' do
-      let(:user) do
-        User.create(
-          email: "#{SecureRandom.alphanumeric(4)}@email.com",
-          password: 'difficult-to-guess',
-          api_key: 'skeleton-key',
-          api_secret_key: 'hidden-key',
-          account_base: 'world'
-        )
-      end
+      let(:user) { create(:user) }
 
       it 'returns snapshop of account' do
         expect(account_snapshot).to eq({ account: 'What a great non-US snapshop!' })

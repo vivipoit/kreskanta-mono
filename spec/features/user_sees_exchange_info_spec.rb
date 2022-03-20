@@ -4,9 +4,7 @@ require 'rails_helper'
 
 describe 'user sees exchange info' do
   before do
-    user = User.create(email: "#{SecureRandom.alphanumeric(4)}@email.com", password: 'difficult-to-guess')
-
-    sign_in user
+    sign_in create(:user)
     visit user_root_path
   end
 

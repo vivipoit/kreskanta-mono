@@ -4,11 +4,7 @@ require 'rails_helper'
 
 describe 'rake binance:create_prices' do
   before do
-    coin = Coin.create(
-      own_symbol: SecureRandom.alphanumeric(4),
-      usd_symbol: 'BTCUSD',
-      name: 'Bitcoin'
-    )
+    coin = create(:coin)
     allow(Coin).to receive(:find_by).and_return(coin)
 
     ticker_response = { symbol: coin.own_symbol, price: '3.2' }

@@ -4,24 +4,20 @@ require 'rails_helper'
 
 describe 'user sees coins' do
   before do
-    user = User.create(
-      email: "#{SecureRandom.alphanumeric(4)}@email.com",
-      password: 'difficult-to-guess',
-      api_key: 'skeleton-key',
-      api_secret_key: 'hidden-key'
-    )
-    Coin.create(
+    create(
+      :coin,
       own_symbol: 'BTC',
       usd_symbol: 'BTCUSD',
       name: 'Bitcoin'
     )
-    Coin.create(
+    create(
+      :coin,
       own_symbol: 'ETH',
       usd_symbol: 'ETHUSD',
       name: 'Ethereum'
     )
 
-    sign_in user
+    sign_in create(:user)
     visit user_root_path
     click_on 'Coins'
   end

@@ -5,15 +5,7 @@ require 'rails_helper'
 describe 'user sees account snapshot' do
   context 'when there are keys' do
     before do
-      user = User.create(
-        email: "#{SecureRandom.alphanumeric(4)}@email.com",
-        password: 'difficult-to-guess',
-        api_key: 'skeleton-key',
-        api_secret_key: 'hidden-key',
-        account_base: 'us'
-      )
-
-      sign_in user
+      sign_in create(:user, :us)
       visit account_snapshots_path
     end
 
@@ -38,12 +30,7 @@ describe 'user sees account snapshot' do
 
   context 'when there are no keys' do
     before do
-      user = User.create(
-        email: "#{SecureRandom.alphanumeric(4)}@email.com",
-        password: 'difficult-to-guess'
-      )
-
-      sign_in user
+      sign_in create(:user, :us, api_key: nil, api_secret_key: nil)
       visit account_snapshots_path
     end
 
