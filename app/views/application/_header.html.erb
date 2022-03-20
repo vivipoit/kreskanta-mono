@@ -13,16 +13,14 @@
       <li class="nav-item">
         <%= link_to icon('fas', 'wallet', 'Account Info', class: 'm-1'), account_info_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item">
-        <%= link_to icon('fas', 'coins', 'Coins', class: 'm-1'), coins_path, class: 'nav-link' %>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="binanceClientDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          BinanceClient
+          <%= icon('fas', 'cog', 'Settings', class: 'm-1') %>
         </a>
         <ul class="dropdown-menu" aria-labelledby="binanceClientDropdownMenu">
-          <li><%= link_to 'Exchange Infos', user_root_path, class: 'dropdown-item' %></li>
-          <li><%= link_to 'Account Snapshots', account_snapshots_path, class: 'dropdown-item' %></li>
+          <li><%= link_to icon('fas', 'coins', 'Coins', class: 'm-1'), coins_path, class: 'dropdown-item' %></li>
+          <li><%= link_to icon('fas', 'terminal', 'Exchange Info', class: 'm-1'), user_root_path, class: 'dropdown-item' %></li>
+          <li><%= link_to icon('fas', 'file-invoice-dollar', 'Account Snapshot', class: 'm-1'), account_snapshots_path, class: 'dropdown-item' %></li>
         </ul>
       </li>
     </ul>
