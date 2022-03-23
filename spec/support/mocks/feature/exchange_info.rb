@@ -1,24 +1,33 @@
 # frozen_string_literal: true
 
-WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo')
+WebMock.stub_request(:get, 'https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BTCUSDT%22%5D')
   .to_return(
     status: 200,
     body: {
       timezone: 'UTC',
       serverTime: 1_645_116_438_405,
-      rateLimits: [],
+      rateLimits: [
+        {
+          rateLimitType: 'REQUEST_WEIGHT',
+          interval: 'MINUTE'
+        }
+      ],
       exchangeFilters: [],
       symbols: [
         {
-          symbol: 'BNBBTC',
+          symbol: 'BTCUSDT',
           status: 'TRADING',
-          baseAsset: 'ETH',
-          quoteAsset: 'BTC',
+          baseAsset: 'BTC',
+          quoteAsset: 'USDT',
           orderTypes: ['LIMIT', 'LIMIT_MAKER', 'MARKET'],
           filters: [
             {
-              filterType: 'PRICE_FILTER',
-              maxPrice: '922327.00000000',
+              filterType: 'PERCENT_PRICE',
+              multiplierUp: '5',
+            },
+            {
+              filterType: 'ICEBERG_PARTS',
+              limit: '10',
             }
           ],
           permissions: ['SPOT', 'MARGIN']
