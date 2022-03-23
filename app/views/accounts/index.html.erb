@@ -1,17 +1,17 @@
 <div class="container-fluid mt-3">
   <h2><%= icon('fas', 'wallet', 'Account Info', class: 'm-1') %></h2>
-  <p class="m-0 p-0">Binance::Api::Account.info! => Get current account information.</p>
+  <p class="m-0 p-0">BinanceClient.account_info(current_user)</p>
   <p class="m-0 p-0 text-muted">https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data</p>
 </div>
 
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12">
-      <h4>Bitcoin Balance</h4>
+      <h4>Balances</h4>
     </div>
   </div>
   <div class="row">
-    <% @info[:balances].each do |balance| %>
+    <% @info.fetch(:balances, {}).each do |balance| %>
       <% next if balance_zero?(balance) %>
       <div class="col-md-3">
         <div class="card m-1">

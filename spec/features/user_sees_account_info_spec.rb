@@ -14,7 +14,7 @@ describe 'user sees account info' do
     end
 
     it 'includes description' do
-      expect(page).to have_css('p', text: 'Binance::Api::Account.info! => Get current account information.')
+      expect(page).to have_css('p', text: 'BinanceClient.account_info(current_user)')
     end
 
     it 'includes permissions' do
